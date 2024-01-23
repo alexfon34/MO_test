@@ -9,38 +9,62 @@ python manage.py migrate
 
 ## App Customer
 
-- **URL incial**: http://127.0.0.1:8000/customer
+### URL incial: http://127.0.0.1:8000/customer
 
-    - *Para realizar la creación de un nuevo cliente
-    - Endpoint: create_customer
-    - Método: POST
-    - Estructura de la peticion en Json:
+
+### `/create_customer/`
+
+Endpoint usado para crear el customer nuevo (POST)
+
+Estructura de la petición (JSON)
+
     ```json
     {
         "score": 150.00,
         "status": 1
     }
+    ```
 
-### `npm start`
+### `/customer_list/`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Endpoint usado para consultar la lista de clientes existentes (GET)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### `/balance/`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Endpoint usado para consultar la deuda total de un cliente existente
 
-### `npm run build`
+Para la consulta se debe enviar como parámetro el ID del cliente obtenido en el Endpoint anterior (external_id)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## App Loans
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-    
+### URL incial: http://127.0.0.1:8000/loan
+
+
+### `/create_loan/`
+
+Endpoint usado para crear el customer préstamo (POST)
+
+Estructura de la petición (JSON)
+
+    ```json
+    {
+        "customer_external_id": "bdb1d05a-3fe7-4645-bff4-d54fca1551ba",
+        "amount": 1500.00,
+        "outstanding": 2000.00,
+        "status": 1
+    }
+    ```
+
+### `/list_loans/`
+
+Endpoint usado para consultar todos los préstamos existentes
+
+
+### `/get_loans_by_customer/`
+
+Endpoint usado para consultar todos los préstamos asignados por cliente
+
+Para la consulta se debe enviar como parámetro el ID del cliente obtenido en el Endpoint anterior (customer_id)
+

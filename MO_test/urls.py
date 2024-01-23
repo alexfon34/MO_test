@@ -27,5 +27,5 @@ urlpatterns = [
     path('loan/list_loans', list_loans, name='loans'),
     path('loan/create_loan', create_loan, name='create_loan'),
     path('loan/get_loans_by_customer', get_loans_by_customer, name='get_loans_by_customer'),
-    path('loan/get_payments_by_customer', get_payments_by_customer, name='get_payments_by_customer')
+    path('payments/get_payments_by_customer', get_payments_by_customer, name='get_payments_by_customer')
 ]
