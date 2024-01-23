@@ -5,6 +5,11 @@ Antes de comenzar se debe aplicar migraciones
 python manage.py makemigrations
 python manage.py migrate
 
+
+## Ejecucion del servidor en terminal
+
+python manage.py runserver
+
 ## Descripción y uso de los Endpoints
 
 ## App Customer
@@ -12,7 +17,7 @@ python manage.py migrate
 ### URL incial: http://127.0.0.1:8000/customer
 
 
-### `/create_customer/`
+### `/create_customer`
 
 Endpoint usado para crear el customer nuevo (POST)
 
@@ -25,12 +30,12 @@ Estructura de la petición (JSON)
     }
     ```
 
-### `/customer_list/`
+### `/customer_list`
 
 Endpoint usado para consultar la lista de clientes existentes (GET)
 
 
-### `/balance/`
+### `/balance`
 
 Endpoint usado para consultar la deuda total de un cliente existente
 
@@ -42,7 +47,7 @@ Para la consulta se debe enviar como parámetro el ID del cliente obtenido en el
 ### URL incial: http://127.0.0.1:8000/loan
 
 
-### `/create_loan/`
+### `/create_loan`
 
 Endpoint usado para crear el customer préstamo (POST)
 
@@ -57,12 +62,12 @@ Estructura de la petición (JSON)
     }
     ```
 
-### `/list_loans/`
+### `/list_loans`
 
 Endpoint usado para consultar todos los préstamos existentes
 
 
-### `/get_loans_by_customer/`
+### `/get_loans_by_customer`
 
 Endpoint usado para consultar todos los préstamos asignados por cliente
 

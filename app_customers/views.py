@@ -54,9 +54,9 @@ def balance(request):
 
 
     if not customer:
-        return Response({"error": "A 'customer_id' parameter is required."},
+        return Response({"error": "Se requiere enviar el parámetro 'customer_id'."},
                         status=status.HTTP_400_BAD_REQUEST)
-    loans = Loan.objects.filter(customer_id=customer_id, status=2)
+    loans = Loan.objects.filter(customer_id=customer, status=1)
     total_debt = loans.aggregate(sum_outstanding=Sum('outstanding'))['sum_outstanding']
     
     
