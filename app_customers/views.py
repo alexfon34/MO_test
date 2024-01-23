@@ -14,20 +14,16 @@ from django.db.models import Sum
 def balance(request):
     customer_id = request.GET.get('customer_id')
     customer = get_object_or_404(Customer, external_id=customer_id)
-    print('cliente', customer.score)
 
     if not customer:
         return Response({"error": "A 'customer' parameter is required."},
                         status=status.HTTP_400_BAD_REQUEST)
     # Calcular total deuda
-    print(customer_id)
     loans = Loan.objects.filter(customer_id=customer_id, status=2)
-    print('loans', loans)
     total_debt = loans \
         .aggregate(sum_outstanding=Sum('outstanding'))['sum_outstanding']
     
     # Calcular monto disponible
-    print('score', customer.score, total_debt)
     available_amount = customer.score - total_debt
     
     return Response({

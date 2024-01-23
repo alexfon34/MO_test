@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'app_customers',
     'app_loans',
     'app_payments',
-    'rest_framework',
-    "rest_framework_api_key",
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
