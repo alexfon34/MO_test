@@ -53,7 +53,13 @@ def create_loan(request):
     
 
 @api_view(['GET'])
-def list_loans(request):    
+def list_loans(request):
+        
+    """Consulta la lista de todos los prestamos creados
+
+    Returns:
+        Response: Objeto con la lista de los prestamos creados
+    """
     
     loan = Loan.objects.all()
     serializer = LoanSerializer(loan, many=True)
@@ -62,6 +68,12 @@ def list_loans(request):
 
 @api_view(['GET'])
 def get_loans_by_customer(request):
+    
+    """Consulta la lista de todos los prestamos creados por cliente
+
+    Returns:
+        Response: Objeto con la lista de los prestamos creados por cliente
+    """
     
     customer = request.GET.get('customer_id')    
     loan = get_loans(Customer, customer)
